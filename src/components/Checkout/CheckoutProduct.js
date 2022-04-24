@@ -1,23 +1,28 @@
 import React from 'react'
 import './CheckoutProduct.css'
+// ⭐⭐⭐⭐
 
-const CheckoutProduct = () => {
+const CheckoutProduct = ({ id, title, image, price, rating }) => {
   return (
     <>
         <div className="checkoutProduct">
-            <img src="https://images-na.ssl-images-amazon.com/images/I/71mEsHyzSCL._SL1000_.jpg" alt="" className="checkoutProduct_image" />
+        {/* https://images-na.ssl-images-amazon.com/images/I/71mEsHyzSCL._SL1000_.jpg */}
+            <img src={image} alt="" className="checkoutProduct_image" />
 
             <div className="checkoutProduct_info">
                 <p className="checkoutProduct_title">
-                    Bennet mystic 15.6 inch laptop shoulder messenger sling office Bag, 
-                    Water Repellent Fabric for Men and Women (Blue
+                    {title}
                 </p>
                 <p className="checkoutProduct_price">
                     <small>$</small>
-                    <strong>20</strong>
+                    <strong>{price}</strong>
                 </p>
                 <div className="checkoutProduct_rating">
-                    ⭐⭐⭐⭐
+                    {Array(rating).fill()
+                        .map((_, i) => (
+                            <p>⭐</p>
+                        ))
+                    }
                 </div>
                 <button>Remove from Basket</button>
             </div>
